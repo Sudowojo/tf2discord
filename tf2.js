@@ -37,8 +37,8 @@ client.once('ready', () => {
 function updateMessage(isOnline, playerCount = 0, maxPlayers = 0) {
     const embed = new MessageEmbed()
         .setTitle('Server Status')
-        .setColor(isOnline ? '#00FF00' : '#FF0000') // Green if online, red if offline
-        .setDescription(isOnline ? `:green_square: Online (${playerCount}/${maxPlayers})` : ':red_square: Offline');
+        .setDescription(isOnline ? `:green_square: Online (${playerCount}/${maxPlayers})` : ':red_square: Offline')
+        .setColor(isOnline ? '#00FF00' : '#FF0000');
 
     const joinButton = new MessageButton()
         .setStyle('LINK')
