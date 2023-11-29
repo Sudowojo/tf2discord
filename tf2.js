@@ -81,12 +81,6 @@ function queryTF2Server() {
     });
 }
 
-function updateMessage(newMessage) {
-    if (messageToUpdate) {
-        messageToUpdate.edit(newMessage);
-    }
-}
-
 function queryTF2ServerPeriodically() {
     // Query immediately on startup
     queryTF2Server();
