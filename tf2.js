@@ -2,17 +2,24 @@ const fs = require('fs');
 const { Client, GatewayIntentBits } = require('discord.js');
 const Gamedig = require('gamedig');
 
+///////////////////
+// Configuration //
+///////////////////
+
 // Reading the token from the discord.token file
 const token = fs.readFileSync('discord.token', 'utf8').trim();
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
+// Reading configuration from config.json
+const config = JSON.parse(fs.readFileSync('config.json', 'utf8'))
 
-// Replace with your channel ID and Team Fortress 2 server details
-const CHANNEL_ID = '1179213850495684718';
-const TF2_SERVER_IP = '100.24.39.231';
-const TF2_SERVER_PORT = '27015'
+// Using values from the config file
+const CHANNEL_ID = config.CHANNEL_ID;
+const TF2_SERVER_IP = config.TF2_SERVER_IP;
+const TF2_SERVER_PORT = config.TF2_SERVER_PORT
 
 let messageToUpdate = null;
+
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
 
 client.once('ready', () => {
     console.log('Bot is online!');
