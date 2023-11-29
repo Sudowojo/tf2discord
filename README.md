@@ -1,10 +1,10 @@
 # tf2discord
 
-This bot can be used to check how many players are on a TF2 Server
+This discord bot can be used to check how many players are on a Team Fortress 2 server.
 
 # How to deploy
 1. Clone this repo
-2. cd into directory
+2. cd into repository
 3. npm install
 4. Copy config.json.SAMPLE -> config.json.
 5. Fill in config.json with server information
