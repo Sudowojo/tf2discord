@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { Client, GatewayIntentBits, EmbedBuilder, MessageButton, MessageActionRow } = require('discord.js');
+const { Client, GatewayIntentBits, EmbedBuilder, ButtonBuilder, ActionRowBuilder } = require('discord.js');
 const Gamedig = require('gamedig');
 
 ///////////////////
@@ -30,7 +30,6 @@ client.once('ready', () => {
     initializeMessage();
 });
 
-
 ///////////////
 // Functions //
 ///////////////
@@ -40,13 +39,13 @@ function updateMessage(isOnline, playerCount = 0, maxPlayers = 0) {
         .setDescription(isOnline ? `:green_square: Online (${playerCount}/${maxPlayers})` : ':red_square: Offline')
         .setColor(isOnline ? '#00FF00' : '#FF0000');
 
-    const joinButton = new MessageButton()
-        .setStyle('LINK')
+    const joinButton = new ButtonBuilder()
+        .setStyle('Link')
         .setLabel('Join Server')
         .setURL(`steam://connect/${TF2_SERVER_IP}:${TF2_SERVER_PORT}`)
         .setDisabled(!isOnline);
 
-    const row = new MessageActionRow().addComponents(joinButton);
+    const row = new ActionRowBuilder().addComponents(joinButton);
 
     if (messageToUpdate) {
         messageToUpdate.edit({ embeds: [embed], components: [row] });
