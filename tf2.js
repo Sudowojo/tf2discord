@@ -37,7 +37,7 @@ function updateMessage(isOnline, playerCount = 0, maxPlayers = 0) {
     const serverCommand = `connect ${TF2_SERVER_IP}:${TF2_SERVER_PORT}`;
     const embed = new EmbedBuilder()
         .setTitle('Server Status')
-        .setDescription(isOnline ? `:green_square: Online (${playerCount}/${maxPlayers} Players)\nTo Connect Open Console (~): \`${serverCommand}\`` : ':red_square: Offline')
+        .setDescription(isOnline ? `:green_square: Online (${playerCount}/${maxPlayers} Players)\nTo connect, open console (~): \`${serverCommand}\`` : ':red_square: Offline')
         .setColor(isOnline ? '#00FF00' : '#FF0000');
 
     if (messageToUpdate) {
