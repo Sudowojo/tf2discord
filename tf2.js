@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const Gamedig = require('gamedig');
 
 ///////////////////
