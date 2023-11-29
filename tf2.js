@@ -38,7 +38,7 @@ function queryTF2Server() {
         port: TF2_SERVER_PORT
     }).then((state) => {
         const playerCount = state.players.length;
-        const newMessage = `There are currently ${playerCount} players on the TF2 server.`;
+        const newMessage = `There are currently ${playerCount} players on The Gravity Bong.`;
         updateMessage(newMessage);
     }).catch((error) => {
         console.error("Server is offline or IP is incorrect", error);
