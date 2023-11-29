@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { Client, GatewayIntentBits, MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
+const { Client, GatewayIntentBits, EmbedBuilder, MessageButton, MessageActionRow } = require('discord.js');
 const Gamedig = require('gamedig');
 
 ///////////////////
@@ -35,7 +35,7 @@ client.once('ready', () => {
 // Functions //
 ///////////////
 function updateMessage(isOnline, playerCount = 0, maxPlayers = 0) {
-    const embed = new MessageEmbed()
+    const embed = new EmbedBuilder()
         .setTitle('Server Status')
         .setDescription(isOnline ? `:green_square: Online (${playerCount}/${maxPlayers})` : ':red_square: Offline')
         .setColor(isOnline ? '#00FF00' : '#FF0000');
@@ -56,7 +56,7 @@ function updateMessage(isOnline, playerCount = 0, maxPlayers = 0) {
 function initializeMessage() {
     const channel = client.channels.cache.get(CHANNEL_ID);
     if (channel) {
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle('Server Status')
             .setDescription('Checking server status...');
         channel.send({ embeds: [embed] }).then(msg => {
