@@ -59,7 +59,11 @@ function updateMessage(newMessage) {
 }
 
 function queryTF2ServerPeriodically() {
-    const queryInterval = 60000; // Query every 60 seconds
+    // Query immediately on startup
+    queryTF2Server();
+
+    // Then set up the interval to query every 60 seconds
+    const queryInterval = 60000; // 60 seconds
     setInterval(queryTF2Server, queryInterval);
 }
 
