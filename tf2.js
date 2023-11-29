@@ -1,13 +1,14 @@
+const fs = require('fs');
 const { Client, GatewayIntentBits } = require('discord.js');
 const Gamedig = require('gamedig');
+
+// Reading the token from the discord.token file
+const token = fs.readFileSync('discord.token', 'utf8').trim();
+
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
 
-
-// Replace with your Discord bot token and channel ID
-const BOT_TOKEN = 'MTE3OTIxMTc4NzU5ODU2MTM2MQ.G3hZha.wsnV-4pCbMmaq4T1E8fncWQhzf3y58_0Lk8iQc';
+// Replace with your channel ID and Team Fortress 2 server details
 const CHANNEL_ID = '1179213850495684718';
-
-// Replace with your Team Fortress 2 server details
 const TF2_SERVER_IP = '100.24.39.231';
 const TF2_SERVER_PORT = '27015'
 
@@ -55,5 +56,4 @@ function queryTF2ServerPeriodically() {
     setInterval(queryTF2Server, queryInterval);
 }
 
-client.login(BOT_TOKEN);
-
+client.login(token);
