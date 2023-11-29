@@ -39,14 +39,6 @@ function updateMessage(isOnline, playerCount = 0, maxPlayers = 0) {
         .setDescription(isOnline ? `:green_square: Online (${playerCount}/${maxPlayers})` : ':red_square: Offline')
         .setColor(isOnline ? '#00FF00' : '#FF0000');
 
-    const joinButton = new ButtonBuilder()
-        .setStyle('Link')
-        .setLabel('Join Server')
-        .setURL(`steam://connect/${TF2_SERVER_IP}:${TF2_SERVER_PORT}`)
-        .setDisabled(!isOnline);
-
-    const row = new ActionRowBuilder().addComponents(joinButton);
-
     if (messageToUpdate) {
         messageToUpdate.edit({ embeds: [embed], components: [row] });
     }
